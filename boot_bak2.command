@@ -5,7 +5,7 @@ boot_bak2(){
 	cd ./adb_bak2computer
 	adb forward tcp:5555 tcp:5555
 	sleep 2
-	nc 127.0.0.1 5555 | pv -i 0.5 > /mmcblk0p7_boot.img
+	nc 127.0.0.1 5555 | pv -i 0.5 > ./mmcblk0p7_boot.img
 	wait $!
 	echo "boot_bak2 is done"
 }
