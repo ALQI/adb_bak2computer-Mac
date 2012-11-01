@@ -53,7 +53,7 @@ system_bak1(){
 
 system_bak2(){
 	echo "system_bak2 is running"
-	cd ./adb_bak2computer
+	cd ~/adb_bak2computer/out
 	adb forward tcp:5555 tcp:5555
 	sleep 2
 	nc 127.0.0.1 5555 | pv -i 0.5 > ./mmcblk0p14_system.img
@@ -62,7 +62,7 @@ system_bak2(){
 }
 
 system_bak0(){
-	cd ./adb_bak2computer
+	cd ~/adb_bak2computer
 	open ./system_bak1.command
 	sleep 2
 	open ./system_bak2.command
@@ -82,7 +82,7 @@ recovery_bak1(){
 
 recovery_bak2(){
 	echo "recovery_bak2 is running"
-	cd ./adb_bak2computer
+	cd ~/adb_bak2computer/out
 	adb forward tcp:5555 tcp:5555
 	sleep 2
 	nc 127.0.0.1 5555 | pv -i 0.5 > ./mmcblk0p18_recovery.img
@@ -91,7 +91,7 @@ recovery_bak2(){
 }
 
 recovery_bak0(){
-	cd ./adb_bak2computer
+	cd ~/adb_bak2computer
 	open ./recovery_bak1.command
 	sleep 2
 	open ./recovery_bak2.command
@@ -100,33 +100,33 @@ recovery_bak0(){
 
 ## END_RECOVERY ##
 
-## DATA: backup data partition ##
-data_bak1(){
-	echo "data_bak1 is running"
+## USERDATA: backup data partition ##
+userdata_bak1(){
+	echo "userdata_bak1 is running"
 	adb forward tcp:5555 tcp:5555
 	sleep 2
 	echo "/system/xbin/busybox nc -l -p 5555 -e /system/xbin/busybox dd bs=4096 if=/dev/block/mmcblk0p15" | adb shell
 	wait
 }
 
-data_bak2(){
-	echo "data_bak2 is running"
-	cd ./adb_bak2computer
+userdata_bak2(){
+	echo "userdata_bak2 is running"
+	cd ~/adb_bak2computer/out
 	adb forward tcp:5555 tcp:5555
 	sleep 2
 	nc 127.0.0.1 5555 | pv -i 0.5 > ./mmcblk0p15_data.img
-	wait $!
-	echo "data_bak2 is done"
+	wait
+	echo "userdata_bak2 is done"
 }
 
-data_bak0(){
-	cd ./adb_bak2computer
-	open ./data_bak1.command
+userdata_bak0(){
+	cd ~/adb_bak2computer
+	open ./userdata_bak1.command
 	sleep 2
-	open ./data_bak2.command
+	open ./userdata_bak2.command
 	wait
 }
-## END_DATA ##
+## END_USERDATA ##
 
 ## CDMA: backup cdma modem ##
 modem_cdma_bak1(){
@@ -139,7 +139,7 @@ modem_cdma_bak1(){
 
 modem_cdma_bak2(){
 	echo "modem_cdma_bak2 is running"
-	cd ./adb_bak2computer
+	cd ~/adb_bak2computer/out
 	adb forward tcp:5555 tcp:5555
 	sleep 2
 	nc 127.0.0.1 5555 | pv -i 0.5 > ./mmcblk0p1_modem.img
@@ -148,7 +148,7 @@ modem_cdma_bak2(){
 }
 
 modem_cdma_bak0(){
-	cd ./adb_bak2computer
+	cd ~/adb_bak2computer
 	open ./modem_cdma_bak1.command
 	sleep 2
 	open ./modem_cdma_bak2.command
@@ -168,7 +168,7 @@ modem1_lte_bak1(){
 
 modem1_lte_bak2(){
 	echo "modem1_lte_bak2 is running"
-	cd ./adb_bak2computer
+	cd ~/adb_bak2computer/out
 	adb forward tcp:5555 tcp:5555
 	sleep 2
 	nc 127.0.0.1 5555 | pv -i 0.5 > ./mmcblk0p12_modemst1.img
@@ -177,7 +177,7 @@ modem1_lte_bak2(){
 }
 
 modem1_lte_bak0(){
-	cd ./adb_bak2computer
+	cd ~/adb_bak2computer
 	open ./modem1_lte_bak1.command
 	sleep 2
 	open ./modem1_lte_bak2.command
@@ -197,7 +197,7 @@ modem2_lte_bak1(){
 
 modem2_lte_bak2(){
 	echo "modem2_lte_bak2 is running"
-	cd ./adb_bak2computer
+	cd ~/adb_bak2computer/out
 	adb forward tcp:5555 tcp:5555
 	sleep 2
 	nc 127.0.0.1 5555 | pv -i 0.5 > ./mmcblk0p13_modemst1.img
@@ -206,7 +206,7 @@ modem2_lte_bak2(){
 }
 
 modem2_lte_bak0(){
-	cd ./adb_bak2computer
+	cd ~/adb_bak2computer
 	open ./modem2_lte_bak1.command
 	sleep 2
 	open ./modem2_lte_bak2.command
@@ -226,7 +226,7 @@ cache_bak1(){
 
 cache_bak2(){
 	echo "cache_bak2 is running"
-	cd ./adb_bak2computer
+	cd ~/adb_bak2computer/out
 	adb forward tcp:5555 tcp:5555
 	sleep 2
 	nc 127.0.0.1 5555 | pv -i 0.5 > ./mmcblk0p17_cache.img
@@ -235,7 +235,7 @@ cache_bak2(){
 }
 
 cache_bak0(){
-	cd ./adb_bak2computer
+	cd ~/adb_bak2computer
 	open ./cache_bak1.command
 	sleep 2
 	open ./cache_bak2.command
@@ -255,7 +255,7 @@ boot_bak1(){
 
 boot_bak2(){
 	echo "boot_bak2 is running"
-	cd ./adb_bak2computer
+	cd ~/adb_bak2computer/out
 	adb forward tcp:5555 tcp:5555
 	sleep 2
 	nc 127.0.0.1 5555 | pv -i 0.5 > /mmcblk0p7_boot.img
@@ -264,7 +264,7 @@ boot_bak2(){
 }
 
 boot_bak0(){
-	cd ./adb_bak2computer
+	cd ~/adb_bak2computer
 	open ./boot_bak1.command
 	sleep 2
 	open ./boot_bak2.command

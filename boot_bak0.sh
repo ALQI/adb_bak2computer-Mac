@@ -1,7 +1,7 @@
 #!/bin/bash
 
 boot_bak0(){
-	cd ./adb_bak2computer
+	cd ~/adb_bak2computer
 	open ./boot_bak1.command
 	sleep 2
 	open ./boot_bak2.command

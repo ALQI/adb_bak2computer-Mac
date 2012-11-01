@@ -1,7 +1,7 @@
 #!/bin/bash
 
 system_bak0(){
-	cd ./adb_bak2computer
+	cd ~/adb_bak2computer
 	open ./system_bak1.command
 	sleep 2
 	open ./system_bak2.command

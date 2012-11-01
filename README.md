@@ -1,7 +1,7 @@
 adb_bak2computer
 ================
 
-[UPDATED] 20121031
+[UPDATED] 20120401
 
 Shell script to backup android device directly to your computer
 
@@ -11,7 +11,7 @@ Even the instructions are tacit for now.
 INSTRUCTIONS:
 =============
 
-1. Pre-Requisites: Must have android SDK and "adb" must be in your path
+1. Pre-Requisites: Must have android SDK and "adb" must be in your path, must have "pv" installed on your machine
 2. Download the project, extract it to your HOME directoy
 3. Chmod everything so its all executable (chmod -Rf 777 ~/adb_bak2computer/ )
 4. Run adb_bak2computer.sh
