@@ -1,11 +1,11 @@
 adb_bak2computer
 ================
 
-[UPDATED] 20121023
+[UPDATED] 20121031
 
 Shell script to backup android device directly to your computer
 
-This is still very nacent so make a nandroid before you start testing this out.
+This is still a beta so make a nandroid before you start testing this out.
 Even the instructions are tacit for now.
 
 INSTRUCTIONS:
@@ -15,6 +15,8 @@ INSTRUCTIONS:
 2. Download the project, extract it to your HOME directoy
 3. Chmod everything so its all executable (chmod -Rf 777 ~/adb_bak2computer/ )
 4. Run adb_bak2computer.sh
+5. Enter a number from the menu
+6. Profit
 
 Initial support is only be for the d2vzw (SCH-I535)
 
