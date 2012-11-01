@@ -14,6 +14,74 @@ shopt -s extglob
 printf "\e[8;25;72;t"
 ## END_ENVIRONMENT ##
 
+## FUNCTIONS: These call the .command files ##
+data_bak0(){
+	open ./data_bak1.command
+	sleep 2
+	open ./data_bak2.command
+	sleep 2
+	open ./data_bak3.command
+	wait
+}
+
+recovery_bak0(){
+	open ./recovery_bak1.command
+	sleep 2
+	open ./recovery_bak2.command
+	wait
+}
+
+system_bak0(){
+	open ./system_bak1.command
+	sleep 2
+	open ./system_bak2.command
+	wait
+}
+
+modem1_lte_bak0(){
+	open ./modem1_lte_bak1.command
+	sleep 2
+	open ./modem1_lte_bak2.command
+	wait	
+}
+
+modem2_lte_bak0(){
+	open ./modem2_lte_bak1.command
+	sleep 2
+	open ./modem2_lte_bak2.command
+	wait
+}
+
+cache_bak0(){
+	open ./cache_bak1.command
+	sleep 2
+	open ./cache_bak2.command
+	wait
+}
+
+modem_cdma_bak0(){
+	open ./modem_cdma_bak1.command
+	sleep 2
+	open ./modem_cdma_bak2.command
+	wait
+}
+
+boot_bak0(){
+	open ./boot_bak1.command
+	sleep 2
+	open ./boot_bak2.command
+	wait
+}
+
+userdata_bak0(){
+	open ./userdata_bak1.command
+	sleep 2
+	open ./userdata_bak2.command
+	wait
+}
+
+## END_FUNCTIONS ##
+
 ## ART: obligatory silly ascii art ##
 O_Alquimista() {
 cat <<"EOT"
@@ -34,7 +102,7 @@ EOT
 show_menu2(){
 	clear
 	O_Alquimista
-		echo "  1) Backup Recovery"
+		echo "  1) Backup UserData *HUGE*"
 		echo "  2) Backup LTE Modem Part1"
 		echo "  3) Backup LTE Modem Part2"
 		echo "  4) Backup CDMA Modem"
@@ -50,16 +118,16 @@ do
 	read CHOICE
 	case "$CHOICE" in
 		"1")
-			sh ./recovery_bak0.sh
+			userdata_bak0; wait $!
 			;;
 		"2")
-			sh ./modem1_lte_bak0.sh
+			modem1_lte_bak0; wait $!
 			;;
 		"3")
-			sh ./modem2_lte_bak0.sh
+			modem2_lte_bak0; wait $!
 			;;
 		"4")
-			sh ./modem_cdma_bak0.sh
+			modem_cdma_bak0; wait $!
 			;;
 		"5")
 			menu1
@@ -82,8 +150,9 @@ show_menu1(){
 		echo "  2) Backup Data"
 		echo "  3) Backup Boot"
 		echo "  4) Backup Cache"
-		echo "  5) ADVANCED OPTIONS MENU"
-		echo "  6) EXIT"
+		echo "  5) Backup Recovery"
+		echo "  6) ADVANCED OPTIONS MENU"
+		echo "  7) EXIT"
 		printf "\e[1mPick A Number\e[m:"
 }
 
@@ -94,21 +163,24 @@ do
 	read CHOICE
 	case "$CHOICE" in
 		"1")
-			sh ./system_bak0.sh
+			system_bak0; wait $!
 			;;
 		"2")
-			sh ./data_bak0.sh
+			data_bak0; wait $!
 			;;
 		"3")
-			sh ./boot_bak0.sh
+			boot_bak0; wait $!
 			;;
 		"4")
-			sh ./cache_bak0.sh
+			cache_bak0; wait $!
 			;;
 		"5")
-			menu2
+			recovery_bak0; wait $!
 			;;
 		"6")
+			menu2
+			;;
+		"7")
 			exit
 			;;
 	esac
