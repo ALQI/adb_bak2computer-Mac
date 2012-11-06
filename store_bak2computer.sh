@@ -1,5 +1,5 @@
 #!/bin/bash
-# WIP: (20121023)
+# WIP: (20121105)
 # store_bak2computer - This is where I'll keep all the functions, info, captains logs, functions and so on and so forth
 #
 # General Idea / Minimal Goals:
@@ -25,22 +25,46 @@
 # and whomever they credited in their guides as well 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
+## BLOCK_LIST ##
+# Conventions for the list o block are as follows
+# [VAR_NAME]="/dev/blockmmcblk#p##" #-> [Known As] ([FS], [mount point if visible], [description]) == [odin img file]
+# MOD_BLK="/dev/block/mmcblk0p1" #-> CDMA Modem (vfat, mounts at /firmware, its the CDMA modem) == NON-HLOS.bin
+# SB1_BLK="/dev/block/mmcblk0p2" #-> sbl1 (samsung proprietary fs, sammys odd way of booting part1) == sbl1.mbn
+# SB2_BLK="/dev/block/mmcblk0p3" #-> sbl2 (samsung proprietary fs, sammys odd way of booting part2) == sbl2.mbn
+# SB3_BLK="/dev/block/mmcblk0p4" #-> sbl3 (samsung proprietary fs, sammys odd way of booting part3) == sbl3.mbn
+# ABT_BLK="/dev/block/mmcblk0p5" #-> aboot (unknown fs, this is the bootloader) == aboot.mbn
+# RPM_BLK="/dev/block/mmcblk0p6" #-> rpm (unknown fs, something to do with the radio) == rpm.mbn
+# BOT_BLK="/dev/block/mmcblk0p7" #-> boot (yaffs2, boot image contains the kernel) == boot.img
+# STZ_BLK="/dev/block/mmcblk0p8" #-> tz (porbably samsung proprietary fs, samsungs "Trust Zone" referenced in the sbl boot process) == tz.mbn
+# PAD_BLK="/dev/block/mmcblk0p9" #-> pad (unknown fs, aka PIT )
+# PRM_BLK="/dev/block/mmcblk0p10" #-> param (unknown fs, pretty much empty exept for one octet) 
+# EFS_BLK="/dev/block/mmcblk0p11" #-> /efs (ext4, mounts at /efs, has device info like IMEI and MEID)
+# LT1_BLK="/dev/block/mmcblk0p12" #-> modemst1 (unknown fs, LTE modem 1) 
+# LT2_BLK="/dev/block/mmcblk0p13" #-> modemst2 (unknown fs, LTE modem 2)
+# SYS_BLK="/dev/block/mmcblk0p14" #-> /system (ext4, everything under /system) == system.img.ext4
+# DAT_BLK="/dev/block/mmcblk0p15" #-> userdata (ext4. mounts at /data, contains internal sdcard as well at /data/media)
+# PST_BLK="/dev/block/mmcblk0p16" #-> /persist && /tombstones (ext4, contains very little data) == persist.img.ext4
+# CHE_BLK="/dev/block/mmcblk0p17" #-> /cache (ext4, its the cache baby) == cache.img.ext4
+# REC_BLK="/dev/block/mmcblk0p18" #-> recovery (ext4??, recovery image like CWM and TWRP?) == recovery.img
+# OTA_BLK="/dev/block/mmcblk0p19" #-> fota (ext4, found at /cache/fota, its where OTA updates are stored)
+# BAK_BLK="/dev/block/mmcblk0p20" #-> backup (unknown fs, where factory reset images are stored?)
+# FSG_BLK="/dev/block/mmcblk0p21" #-> fsg (unknown fs, may contain files used in factory wipe, somehow linked to the grow partition)
+# SSD_BLK="/dev/block/mmcblk0p22" #-> ssd (unknown fs maybe ramfs, "Secure Software Download" don't know what its used for)
+# GRW_BLK="/dev/block/mmcblk0p23" #-> grow (unknown fs, i think this has something to do with ext4 sparse images)
 
-## STORAGE: This data is for future use ##
-#LOCALPATH="/path/to/store/the/backup"
+# WTF!?!?!?!?!?!!???
+# DK1_BLK="/dev/block/mmcblk0boot0" #-> may have something to do with booting (duh, but what)
+# DK2_BLK="/dev/block/mmcblk0boot1" #-> may have something to do with booting (duh, but what)
+# DK3_BLK="/dev/block/mmcblk1p1" #-> external sd card
+# DK4_BLK="/dev/block/mmcblk1p2" #-> external sd card
 
-# Standard blocks
-# SYS_BLK="/dev/block/mmcblk0p14"
-# DAT_BLK="/dev/block/mmcblk0p15"
-# BOT_BLK="/dev/block/mmcblk0p7"
+# NOTES: 
+# samsung seems to refer to 4 types of file systems; cgroup, ecryptfs, ext4, fuse
+# could ecryptfs be the same as samsungs proprietary file system?
+# 
 
-# Optional blocks
-# CHE_BLK="/dev/block/mmcblk0p17"
-# REC_BLK="/dev/block/mmcblk0p18"
-# MOD_BLK="/dev/block/mmcblk0p1"
-# LT1_BLK="/dev/block/mmcblk0p12"
-# LT2_BLK="/dev/block/mmcblk0p13"
-## END_STORAGE ##
+
+## END_BLOCK_LIST ##
 
 ## SYSTEM: backup system partition ##
 system_bak1(){
