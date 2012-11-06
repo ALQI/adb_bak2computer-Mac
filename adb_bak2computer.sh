@@ -212,6 +212,7 @@ do
 			;;
 		"5")
 			sh ./recovery_bak0.sh
+			;;
 		"6")
 			menu2
 			;;
