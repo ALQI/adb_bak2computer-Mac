@@ -2,6 +2,8 @@
 
 pad_bak0(){
 	cd ~/adb_bak2computer
+	adb start-server
+	wait
 	open ./pad_bak1.command
 	sleep 2
 	open ./pad_bak2.command

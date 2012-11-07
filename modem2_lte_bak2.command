@@ -11,3 +11,5 @@ modem2_lte_bak2(){
 }
 
 modem2_lte_bak2
+wait
+adb kill-server

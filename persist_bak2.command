@@ -11,3 +11,5 @@ persist_bak2(){
 }
 
 persist_bak2
+wait
+adb kill-server

@@ -11,3 +11,5 @@ param_bak2(){
 }
 
 param_bak2
+wait
+adb kill-server

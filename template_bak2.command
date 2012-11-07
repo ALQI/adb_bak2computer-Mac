@@ -11,3 +11,5 @@ T_bak2(){
 }
 
 T_bak2
+wait
+adb kill-server

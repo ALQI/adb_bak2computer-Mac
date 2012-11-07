@@ -11,3 +11,5 @@ aboot_bak2(){
 }
 
 aboot_bak2
+wait
+adb kill-server

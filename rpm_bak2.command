@@ -11,3 +11,5 @@ rpm_bak2(){
 }
 
 rpm_bak2
+wait
+adb kill-server

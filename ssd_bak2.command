@@ -11,3 +11,5 @@ ssd_bak2(){
 }
 
 ssd_bak2
+wait
+adb kill-server

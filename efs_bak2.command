@@ -11,3 +11,5 @@ efs_bak2(){
 }
 
 efs_bak2
+wait
+adb kill-server

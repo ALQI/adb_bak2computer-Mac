@@ -2,6 +2,8 @@
 
 modem_cdma_bak0(){
 	cd ~/adb_bak2computer
+	adb start-server
+	wait
 	open ./modem_cdma_bak1.command
 	sleep 2
 	open ./modem_cdma_bak2.command

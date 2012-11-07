@@ -12,3 +12,4 @@ userdata_bak2(){
 
 userdata_bak2
 wait
+adb kill-server

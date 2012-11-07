@@ -11,3 +11,5 @@ fsg_bak2(){
 }
 
 fsg_bak2
+wait
+adb kill-server

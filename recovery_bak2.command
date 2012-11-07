@@ -11,3 +11,5 @@ recovery_bak2(){
 }
 
 recovery_bak2
+wait
+adb kill-server

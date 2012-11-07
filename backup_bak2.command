@@ -11,3 +11,5 @@ backup_bak2(){
 }
 
 backup_bak2
+wait
+adb kill-server

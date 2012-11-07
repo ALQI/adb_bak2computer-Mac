@@ -11,3 +11,5 @@ grow_bak2(){
 }
 
 grow_bak2
+wait
+adb kill-server

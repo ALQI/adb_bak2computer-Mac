@@ -13,7 +13,7 @@
 
 ## ENVIRONMENT: setup our environment for us shall we ##
 shopt -s extglob
-printf "\e[8;25;72;t"
+printf "\e[8;29;72;t"
 ## END_ENVIRONMENT ##
 
 ## ART: obligatory silly ascii art ##

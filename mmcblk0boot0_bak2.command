@@ -11,3 +11,5 @@ mmcblk0boot0_bak2(){
 }
 
 mmcblk0boot0_bak2
+wait
+adb kill-server

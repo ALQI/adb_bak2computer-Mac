@@ -11,3 +11,5 @@ cache_bak2(){
 }
 
 cache_bak2
+wait
+adb kill-server

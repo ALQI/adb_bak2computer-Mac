@@ -11,3 +11,5 @@ data_bak3(){
 }
 
 data_bak3
+wait
+adb kill-server

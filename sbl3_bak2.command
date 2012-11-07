@@ -11,3 +11,5 @@ sbl3_bak2(){
 }
 
 sbl3_bak2
+wait
+adb kill-server

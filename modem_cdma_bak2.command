@@ -11,3 +11,5 @@ modem_cdma_bak2(){
 }
 
 modem_cdma_bak2
+wait
+adb kill-server

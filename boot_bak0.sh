@@ -2,6 +2,8 @@
 
 boot_bak0(){
 	cd ~/adb_bak2computer
+	adb start-server
+	wait
 	open ./boot_bak1.command
 	sleep 2
 	open ./boot_bak2.command

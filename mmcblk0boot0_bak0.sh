@@ -2,6 +2,8 @@
 
 mmcblk0boot0_bak0(){
 	cd ~/adb_bak2computer
+	adb start-server
+	wait
 	open ./mmcblk0boot0_bak1.command
 	sleep 2
 	open ./mmcblk0boot0_bak2.command
