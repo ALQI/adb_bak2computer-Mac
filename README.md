@@ -1,7 +1,7 @@
 adb_bak2computer
 ================
 
-[UPDATED] 20121105
+[UPDATED] 20121115
 
 Shell script to backup android device directly to your computer
 
