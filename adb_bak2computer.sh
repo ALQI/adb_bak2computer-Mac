@@ -187,8 +187,10 @@ show_menu1(){
 		echo "  3) Backup Boot"
 		echo "  4) Backup Cache"
 		echo "  5) Backup Recovery"
-		echo "  6) ADVANCED OPTIONS MENU"
-		echo "  7) EXIT"
+		echo "  6) Backup Internal SDCard"
+		echo "  7) Backup External SDCard"
+		echo "  8) ADVANCED OPTIONS MENU"
+		echo "  9) EXIT"
 		printf "\e[1mPick A Number\e[m:"
 }
 
@@ -214,9 +216,15 @@ do
 			sh ./recovery_bak0.sh
 			;;
 		"6")
-			menu2
+			sh ./internalSD_bak0.sh
 			;;
 		"7")
+			sh ./externalSD_bak0.sh
+			;;
+		"8")
+			menu2
+			;;
+		"9")
 			exit
 			;;
 	esac
