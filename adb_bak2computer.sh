@@ -1,7 +1,7 @@
 #!/bin/bash
 # adb_bak2computer - tool to backup d2vzw (SCH-I535) partitions directly to a users desktop/laptop
 # 
-# UPDATED: 20121105
+# UPDATED: 20121115
 # 
 # ALL CREDIT GOES TO: 
 # das7982 - for ODIN guide here:
@@ -65,55 +65,55 @@ do
 	read CHOICE
 	case "$CHOICE" in
 		"1")
-			sh ./aboot_bak0.sh
+			sh ./scripts/aboot_bak0.sh
 			;;
 		"2")
-			sh ./sbl1_bak0.sh
+			sh ./scripts/sbl1_bak0.sh
 			;;
 		"3")
-			sh ./sbl2_bak0.sh
+			sh ./scripts/sbl2_bak0.sh
 			;;
 		"4")
-			sh ./sbl3_bak0.sh
+			sh ./scripts/sbl3_bak0.sh
 			;;
 		"5")
-			sh ./rpm_bak0.sh
+			sh ./scripts/rpm_bak0.sh
 			;;
 		"6")
-			sh ./tz_bak0.sh
+			sh ./scripts/tz_bak0.sh
 			;;
 		"7")
-			sh ./pad_bak0.sh
+			sh ./scripts/pad_bak0.sh
 			;;
 		"8")
-			sh ./param_bak0.sh
+			sh ./scripts/param_bak0.sh
 			;;
 		"9")
-			sh ./efs_bak0.sh
+			sh ./scripts/efs_bak0.sh
 			;;
 		"10")
-			sh ./persist_bak0.sh
+			sh ./scripts/persist_bak0.sh
 			;;
 		"11")
-			sh ./fota_bak0.sh
+			sh ./scripts/fota_bak0.sh
 			;;
 		"12")
-			sh ./backup_bak0.sh
+			sh ./scripts/backup_bak0.sh
 			;;
 		"13")
-			sh ./fsg_bak0.sh
+			sh ./scripts/fsg_bak0.sh
 			;;
 		"14")
-			sh ./ssd_bak0.sh
+			sh ./scripts/ssd_bak0.sh
 			;;
 		"15")
-			sh ./grow_bak0.sh
+			sh ./scripts/grow_bak0.sh
 			;;
 		"16")
-			sh ./mmcblk0boot0_bak0.sh
+			sh ./scripts/mmcblk0boot0_bak0.sh
 			;;
 		"17")
-			sh ./mmcblk0boot1_bak0.sh
+			sh ./scripts/mmcblk0boot1_bak0.sh
 			;;
 		"18")
 			menu2
@@ -151,16 +151,16 @@ do
 	read CHOICE
 	case "$CHOICE" in
 		"1")
-			sh ./userdata_bak0.sh
+			sh ./scripts/userdata_bak0.sh
 			;;
 		"2")
-			sh ./modem1_lte_bak0.sh
+			sh ./scripts/modem1_lte_bak0.sh
 			;;
 		"3")
-			sh ./modem2_lte_bak0.sh
+			sh ./scripts/modem2_lte_bak0.sh
 			;;
 		"4")
-			sh ./modem_cdma_bak0.sh
+			sh ./scripts/modem_cdma_bak0.sh
 			;;
 		"5")
 			menu3
@@ -201,25 +201,25 @@ do
 	read CHOICE
 	case "$CHOICE" in
 		"1")
-			sh ./system_bak0.sh
+			sh ./scripts/system_bak0.sh
 			;;
 		"2")
-			sh ./data_bak0.sh
+			sh ./scripts/data_bak0.sh
 			;;
 		"3")
-			sh ./boot_bak0.sh
+			sh ./scripts/boot_bak0.sh
 			;;
 		"4")
-			sh ./cache_bak0.sh
+			sh ./scripts/cache_bak0.sh
 			;;
 		"5")
-			sh ./recovery_bak0.sh
+			sh ./scripts/recovery_bak0.sh
 			;;
 		"6")
-			sh ./internalSD_bak0.sh
+			sh ./scripts/internalSD_bak0.sh
 			;;
 		"7")
-			sh ./externalSD_bak0.sh
+			sh ./scripts/externalSD_bak0.sh
 			;;
 		"8")
 			menu2
